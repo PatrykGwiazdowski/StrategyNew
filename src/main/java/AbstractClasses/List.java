@@ -1,31 +1,48 @@
 package AbstractClasses;
 
-import Interfaces.Node;
-
 /**
- *
- * Created by INV-6179 on 04.03.2016.
+ * Abstract class
  */
 public abstract class List<E> implements Interfaces.List<E> {
     protected int size;
+    protected Node<E> head;
 
-    public int getSize(){
+    /**
+     * Return size of List
+     *
+     * @return size of list
+     */
+    public int getSize() {
         return size;
     }
 
-    public abstract void addElement(E o);
+    /**
+     * return true if list is empty
+     *
+     * @return true  if list is empty
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
-    public abstract void removeElement(int index);
 
-    public abstract void removeFirst();
+    /**
+     * checks if List contains specified elements
+     *
+     * @param o List element to check
+     * @return true if list contains specified element
+     */
+    public boolean contains(E o) {
+        Node tmpNode = head;
+        for (int i = 0; i < size; i++) {
+            if (tmpNode.getNextNode().equals(o)) {
+                return true;
+            }
+            tmpNode = tmpNode.getNextNode();
+        }
+        return false;
+    }
 
-    public abstract void clear();
-
-    public abstract boolean contains(E o);
-
-    public abstract boolean isEmpty();
-
-    public abstract E get(int index);
-
-    public abstract void set(int index,E o);
 }
+
+

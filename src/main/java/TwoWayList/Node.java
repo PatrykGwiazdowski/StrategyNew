@@ -3,31 +3,34 @@ package TwoWayList;
 /**
  * Created by INV-6179 on 04.03.2016.
  */
-public class Node<E> implements Interfaces.Node<E> {
-    private E data;
-    private Node nextNode;
-    private Node previousNode;
-    public E getData() {
-        return data;
+public class Node<E> extends AbstractClasses.Node<E> {
+    private Node<E> previousNode;
+
+    /**
+     * Empty constructor that sets data, nextNode and previousNode to null
+     */
+    public Node() {
+        super();
+        previousNode = null;
     }
 
-    public void setData(E data) {
-        this.data=data;
-    }
-
-    public Node getNextNode() {
-        return nextNode;
-    }
-
-    public void setNextNode(Node nextNode) {
+    /**
+     * Constructor that creates new node with given parameters
+     *
+     * @param data     to be stored in node
+     * @param nextNode refference to nex node in List
+     */
+    public Node(E data, Node<E> nextNode, Node<E> previousNode) {
+        this.data = data;
         this.nextNode = nextNode;
+        this.previousNode = previousNode;
     }
 
-    public Node getPreviousNode() {
+    public Node<E> getPreviousNode() {
         return previousNode;
     }
 
-    public void setPreviousNode(Node previousNode) {
+    public void setPreviousNode(Node<E> previousNode) {
         this.previousNode = previousNode;
     }
 }

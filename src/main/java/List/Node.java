@@ -4,36 +4,26 @@ package List;
  * Node class for one direcional list
  */
 
-public class Node<E> implements Interfaces.Node<E>{
-    private E data;
-    private Node nextNode;
+public class Node<E> extends AbstractClasses.Node<E> {
 
-    public Node(E data,Node nextNode){
-        this.data=data;
-        this.nextNode=nextNode;
-    }
 
+    /**
+     * Empty constructor that sets data and nextNode to null
+     */
     public Node() {
-
+        data = null;
+        nextNode = null;
     }
 
-    public E getData() {
-        return data;
-    }
-
-
-    public void setData(E data) {
-        this.data=data;
-    }
-
-
-    public Node getNextNode() {
-        return nextNode;
-    }
-
-
-    public void setNextNode(Node nextNode) {
-        this.nextNode= nextNode;
+    /**
+     * Constructor that creates new node with given parameters
+     *
+     * @param data     to be stored in node
+     * @param nextNode refference to nex node in List
+     */
+    public Node(E data, Node<E> nextNode) {
+        this.data = data;
+        this.nextNode = nextNode;
     }
 
 
